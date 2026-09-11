@@ -19,7 +19,7 @@ This guide provides an end-to-end blueprint for bootstrapping a production-grade
 
 ## 1. Architecture & Infrastructure Blueprint
 
-![AWS VPC architecture diagram showing the control-plane and two worker nodes secured by a self-referencing security group and connected over a Calico overlay network](architecture-diagram.png)
+![AWS VPC architecture diagram showing the control-plane and two worker nodes secured by a self-referencing security group and connected over a Calico overlay network](kubeadm.png)
 
 ### Compute Sizing Requirements
 
