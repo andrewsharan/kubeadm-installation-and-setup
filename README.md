@@ -10,7 +10,7 @@ This guide provides an end-to-end blueprint for bootstrapping a production-grade
 
 ## **1\. Architecture & Infrastructure Blueprint     
 
-![Alt text](/home/test/Downloads/kubeadm.png)
+![Kubeadm Cluster Architecture](./kubeadm.png)
 
 ### 
 
