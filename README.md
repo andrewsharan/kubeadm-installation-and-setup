@@ -53,7 +53,8 @@ Attach a single common security group to all three nodes with the following inbo
 
 **Outbound rules:** Keep the default **All Traffic (`0.0.0.0/0`)** rule to permit image pulls and repository package downloads.
 
----
+**Note:** Since this is a lab setup, I used an **“All traffic”** rule with a self-referencing security group to simplify node-to-node communication and ensure Kubernetes/Calico networking works correctly. In a production environment, the inbound rules should be restricted according to the principle of least privilege, allowing only the required protocols and port numbers between the appropriate cluster components.
+
 
 ## 3. Phase 1: Host OS Configuration (Run on All Nodes)
 
