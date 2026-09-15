@@ -8,12 +8,12 @@ This guide provides an end-to-end blueprint for bootstrapping a multi-node Kuber
 
 1. [Architecture & Infrastructure Blueprint](#1-architecture--infrastructure-blueprint)
 2. [AWS Prerequisites Configuration](#2-aws-prerequisites-configuration)
-3. [Phase 1: Host OS Configuration (Run on All Nodes)](#3-phase-1-host-os-configuration-run-on-all-nodes)
-4. [Phase 2: Container Runtime Installation (Run on All Nodes)](#4-phase-2-container-runtime-installation-run-on-all-nodes)
-5. [Phase 3: Install Kubernetes Binaries (Run on All Nodes)](#5-phase-3-install-kubernetes-binaries-run-on-all-nodes)
-6. [Phase 4: Control-Plane Bootstrap (Run Only on control-plane)](#6-phase-4-control-plane-bootstrap-run-only-on-control-plane)
-7. [Phase 5: Install Calico CNI (Run Only on control-plane)](#7-phase-5-install-calico-cni-run-only-on-control-plane)
-8. [Phase 6: Join Worker Nodes (Run on Worker Instances)](#8-phase-6-join-worker-nodes-run-on-worker-instances)
+3. [Phase 1: Host OS Configuration](#3-phase-1-host-os-configuration-run-on-all-nodes)
+4. [Phase 2: Container Runtime Installation](#4-phase-2-container-runtime-installation-run-on-all-nodes)
+5. [Phase 3: Install Kubernetes Binaries](#5-phase-3-install-kubernetes-binaries-run-on-all-nodes)
+6. [Phase 4: Control-Plane Bootstrap](#6-phase-4-control-plane-bootstrap-run-only-on-control-plane)
+7. [Phase 5: Install Calico CNI](#7-phase-5-install-calico-cni-run-only-on-control-plane)
+8. [Phase 6: Join Worker Nodes](#8-phase-6-join-worker-nodes-run-on-worker-instances)
 9. [Phase 7: Cluster Verification & End-to-End Testing](#9-phase-7-cluster-verification--end-to-end-testing)
 10. [Troubleshooting Reference](#10-troubleshooting-reference)
 
