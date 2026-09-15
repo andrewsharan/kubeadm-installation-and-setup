@@ -58,7 +58,7 @@ Attach a single common security group to all three nodes with the following inbo
 **Note:** Since this is a lab setup, I used an **“All traffic”** rule with a self-referencing security group to simplify node-to-node communication and ensure Kubernetes/Calico networking works correctly. For a production environment, **separate Security Groups should be created for the Kubernetes control plane and worker nodes.** The inbound and outbound rules should then be restricted according to the principle of least privilege, allowing only the required protocols and port numbers between the appropriate cluster components. This provides better network isolation and reduces the potential attack surface.
 
 
-## 3. Phase 1: Host OS Configuration (Run on All Nodes)
+## 3. Phase 1: Host OS Configuration
 
 Perform these steps on `control-plane`, `worker-node1`, and `worker-node2`.
 
@@ -87,6 +87,7 @@ echo "$(hostname -I | awk '{print $1}') worker-node2" | sudo tee -a /etc/hosts
 **What this does:**
 - `hostnamectl set-hostname` — Sets the host system identity.
 - `tee -a /etc/hosts` — Maps the private IP directly to the hostname locally, bypassing potential external DNS resolution failures with the local resolver (`127.0.0.53`).
+- **Verification:** — Run `cat /etc/hosts ` or `getent hosts control-plane`.  The output should display the IP address along with the hostname.
 
 ### Step 2: Disable Linux Swap Memory
 
@@ -157,7 +158,9 @@ sudo apt-get install -y conntrack socat ipset
 
 ---
 
-## 4. Phase 2: Container Runtime Installation (Run on All Nodes)
+## 4. Phase 2: Container Runtime Installation
+
+Perform these steps on `control-plane`, `worker-node1`, and `worker-node2`.
 
 Kubernetes requires an OCI-compliant Container Runtime Interface (CRI). This guide uses standard `containerd`.
 
@@ -187,7 +190,9 @@ sudo systemctl enable containerd
 
 ---
 
-## 5. Phase 3: Install Kubernetes Binaries (Run on All Nodes)
+## 5. Phase 3: Install Kubernetes Binaries
+
+Perform these steps on `control-plane`, `worker-node1`, and `worker-node2`.
 
 Install the target version of Kubernetes (v1.31) from the official package repository ([pkgs.k8s.io](http://pkgs.k8s.io)).
 
@@ -217,7 +222,9 @@ sudo apt-mark hold kubelet kubeadm kubectl
 
 ---
 
-## 6. Phase 4: Control-Plane Bootstrap (Run Only on control-plane)
+## 6. Phase 4: Control-Plane Bootstrap 
+
+Perform these steps on `control-plane`.
 
 ### Step 1: Initialize the Cluster with kubeadm
 
@@ -274,7 +281,9 @@ kubeadm join 172.31.91.187:6443 --token <token> \
 
 ---
 
-## 7. Phase 5: Install Calico CNI (Run Only on control-plane)
+## 7. Phase 5: Install Calico CNI 
+
+Perform these steps on `control-plane`.
 
 Vanilla Kubernetes has no built-in pod network driver; it requires a CNI to allocate IPs and route packets between nodes.
 
@@ -291,7 +300,9 @@ kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.28.0
 
 ---
 
-## 8. Phase 6: Join Worker Nodes (Run on Worker Instances)
+## 8. Phase 6: Join Worker Nodes
+
+Perform these steps on `worker-node1` and `worker-node2`.
 
 Log into each worker node via Session Manager and run the join command generated during Phase 4 with `sudo`, appending the explicit `--node-name` parameter:
 
