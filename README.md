@@ -1,7 +1,8 @@
 # Kubeadm Cluster Setup
 
-This guide provides an end-to-end blueprint for setting up a multi-node Kubernetes cluster using **kubeadm on AWS EC2 instances** running **Ubuntu 24.04 LTS.**
+This guide provides an end-to-end blueprint for bootstrapping a multi-node Kubernetes cluster using **kubeadm on AWS EC2 instances** running **Ubuntu 24.04 LTS.**
 
+**Bootstrapping** involves preparing the EC2 instances, installing the required Kubernetes components, initializing the control plane, joining the worker nodes to the cluster, configuring Calico networking, and bringing the cluster to a fully functional state.
 
 ## Table of Contents
 
