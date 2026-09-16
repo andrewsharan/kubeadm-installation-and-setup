@@ -59,7 +59,7 @@ The cluster ran on a three-node vanilla topology orchestrated on top of Amazon W
 
 | Node | Role | Private IP | Instance ID |
 |---|---|---|---|
-| Control plane node | Control plane | `172.31.91.187` | — |
+| Control plane node | Control plane | `172.31.91.187` | `i-066195c81368451a7` |
 | worker-node1 | Worker | `172.31.67.162` | `i-0281a0d1ab953427e` |
 | worker-node2 | Worker | `172.31.69.237` | `i-0eb935deffa4b32fb` |
 
